@@ -2,7 +2,7 @@ version: "3"
 services:
 
   frontend:
-    image: DOCKER_HUB_USER_CHANGE_ME/project-frontend:latest
+    image: mbarde/project-frontend:latest
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
       RAZZLE_DEV_PROXY_API_PATH: http://backend:8080/Plone
@@ -13,7 +13,7 @@ services:
       - backend
 
   backend:
-    image: DOCKER_HUB_USER_CHANGE_ME/project-backend:latest
+    image: mbarde/project-backend:latest
     environment:
       RELSTORAGE_DSN: "dbname='plone' user='plone' host='db' password='plone'"
     restart: always
@@ -30,7 +30,7 @@ services:
       POSTGRES_DB: plone
     restart: always
     volumes:
-      - data:/var/lib/postgresql/data    
+      - data:/var/lib/postgresql/data
     ports:
     - "5432:5432"
 
